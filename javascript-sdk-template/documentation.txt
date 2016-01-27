@@ -1,0 +1,2 @@
+For the Construct 2 Javascript SDK documentation, visit:
+https://www.scirra.com/manual/15/sdk

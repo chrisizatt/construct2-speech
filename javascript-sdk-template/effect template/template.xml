@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<c2effect>
+	<!-- About -->
+	<id>myeffect</id>			<!-- A unique ID.  Change this!  Never change the ID after release - change the name instead. -->
+	<name>My effect</name>		<!-- The displayed name of the effect -->
+	<category>Color</category>	<!-- Any category can be used, but try to use one of: Color, Blend, or Distortion -->
+	<description>A description of what this effect does.</description>
+	<author>Scirra</author>
+	
+	<!-- Settings -->
+	
+	<!-- Extend the bounding box for effect processing by a number of pixels to show the edges
+		 of effects which go beyond the object edges, e.g. blur and warp.
+		 Do not set if not strictly necessay!  These options have a performance impact. -->
+	<extend-box-horizontal>0</extend-box-horizontal>
+	<extend-box-vertical>0</extend-box-vertical>
+	
+	<!-- Set to true if the background is sampled (see comments on background sampling in the .fx file) -->
+	<blends-background>false</blends-background>
+	
+	<!-- Set to true if the background is not sampled at 1:1 with the foreground (e.g. the
+		 background texture co-ordinates are modified in some way by the shader, as done
+		 by Glass and Lens) -->
+	<cross-sampling>false</cross-sampling>
+	
+	<!-- Set to true if the effect changes by itself over time, e.g. Noise or Warp effects. -->
+	<animated>false</animated>
+	
+	<!-- Parameters -->
+	<parameters>
+		<!-- An example parameter, with the following tags:
+			name: the displayed name of the parameter
+			description: appears at the bottom of the properties bar when selected
+			type: either float or percent.  Percent is just a float but displayed x 100.
+			initial: initial value of the parameter
+			uniform: name of the corresponding uniform variable in the .fx file.
+			
+			You can add as many parameters as you like.
+		-->
+		  
+		<!--
+		<param>
+			<name>Example parameter</name>
+			<description>An example parameter from the template.</description>
+			<type>float</type>
+			<initial>1</initial>
+			<uniform>exampleParam</uniform>
+		</param>
+		-->
+	</parameters>
+	
+</c2effect>
