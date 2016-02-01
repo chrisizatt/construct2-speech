@@ -1,10 +1,6 @@
 <div class="right">
   <button id="start_button" onclick="startButton(event)">Start</button>
-</div>
-<div id="results">
-  <span id="final_span" class="final"></span>
-  <span id="interim_span" class="interim"></span>
-  <p>
+  <button id="stop_button" onclick="stopButton(event)">Stop</button>
 </div>
 <script>
 var langs =
@@ -71,7 +67,8 @@ var langs =
  ['???',           ['ja-JP']],
  ['Lingua latina',   ['la']]];
 
-
+var command="jump";
+var patt = null;
 var final_transcript = '';
 var recognizing = false;
 var ignore_onend;
@@ -84,11 +81,13 @@ if (!('webkitSpeechRecognition' in window)) {
   recognition.interimResults = true;
 
   recognition.onstart = function() {
+	console.log("onstart");
     recognizing = true;
     console.log("Speak now.");
   };
 
   recognition.onerror = function(event) {
+	console.log("onerror");
     if (event.error == 'no-speech') {
       console.log("No speech was detected. You may need to adjust your microphone settings.");
       ignore_onend = true;
@@ -108,19 +107,16 @@ if (!('webkitSpeechRecognition' in window)) {
   };
 
   recognition.onend = function() {
+	console.log("onend");
     recognizing = false;
+	//  
+	recognition.start();
     if (ignore_onend) {
       return;
     }
     if (!final_transcript) {
       console.log("Click on the microphone icon and begin speaking.");
       return;
-    }
-    if (window.getSelection) {
-      window.getSelection().removeAllRanges();
-      var range = document.createRange();
-      range.selectNode(document.getElementById('final_span'));
-      window.getSelection().addRange(range);
     }
   };
 
@@ -133,23 +129,42 @@ if (!('webkitSpeechRecognition' in window)) {
         interim_transcript += event.results[i][0].transcript;
       }
     }
-    final_span.innerHTML = final_transcript;
-    interim_span.innerHTML = interim_transcript;
+//	console.log("final_transcript = " + final_transcript);
+	console.log("interim_transcript = " + interim_transcript);
+	// Fixes not reconizing the lowercase first.
+	// fixes not reconizing it as part of a sentence
+	// Still has problem with being part of a word
+	// Some words it does not reconize such as "woo"
+	if (patt.test(interim_transcript.toLowerCase())){
+		console.log("Recognized command.");
+	}
   };
 }
 
 function startButton(event) {
-  if (recognizing) {
-    recognition.stop();
-    return;
-  }
+ if (!recognizing){
+  patt = new RegExp(command.toLowerCase());
   final_transcript = '';
   recognition.lang = 'en-US';
   recognition.start();
   ignore_onend = false;
-  final_span.innerHTML = '';
-  interim_span.innerHTML = '';
   console.log("Click the Allow button above to enable your microphone.");
   start_timestamp = event.timeStamp;
+ }
 }
+
+function stopButton(event) {
+  if (recognizing) {
+    recognition.stop();
+    return;
+  }
+}
+
+// Fixes Recognition getting stuck.
+setInterval(function() {
+	console.log("restarting recognizer");
+	recognition.stop();
+}, 10000);
+
+
 </script>
