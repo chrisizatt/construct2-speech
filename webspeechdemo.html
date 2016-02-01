@@ -69,6 +69,9 @@ var langs =
 
 var command="jump";
 var patt = null;
+var timer = null;
+var timerValue = 10;
+var stopButtonClicked = false;
 var final_transcript = '';
 var recognizing = false;
 var ignore_onend;
@@ -109,7 +112,11 @@ if (!('webkitSpeechRecognition' in window)) {
   recognition.onend = function() {
 	console.log("onend");
     recognizing = false;
-	//  
+	
+	if (stopButtonClicked){
+	stopButtonClicked = false;
+	  return;
+	}	
 	recognition.start();
     if (ignore_onend) {
       return;
@@ -150,21 +157,23 @@ function startButton(event) {
   ignore_onend = false;
   console.log("Click the Allow button above to enable your microphone.");
   start_timestamp = event.timeStamp;
+  // Fixes Recognition getting stuck.
+	timer = setInterval(function() {
+	console.log("restarting recognizer");
+	recognition.stop();
+  }, timerValue * 1000);
  }
 }
 
 function stopButton(event) {
+  stopButtonClicked = true;
+  clearInterval(timer);
   if (recognizing) {
     recognition.stop();
     return;
   }
 }
 
-// Fixes Recognition getting stuck.
-setInterval(function() {
-	console.log("restarting recognizer");
-	recognition.stop();
-}, 10000);
 
 
 </script>
