@@ -251,8 +251,7 @@ cr.plugins_.Speech = function(runtime)
 	
 	Cnds.prototype.OnCommand = function(word)
 	{
-		this.patt = new RegExp(word.toLowerCase());
-		if (this.patt.test(this.interim_transcript.toLowerCase())){
+		if (this.interim_transcript.toLowerCase().indexOf(word.toLowerCase()) != -1){
 				console.log("Recognized command.");
 				return true;
 		} else {
