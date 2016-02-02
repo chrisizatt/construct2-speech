@@ -131,17 +131,14 @@ cr.plugins_.Speech = function(runtime)
 				// fixes not reconizing it as part of a sentence
 				// Still has problem with being part of a word
 				// Some words it does not reconize such as "woo"
-				if (self.patt.test(self.interim_transcript.toLowerCase())){
-					console.log("Recognized command.");
-					self.runtime.trigger(cr.plugins_.Speech.prototype.cnds.OnCommand, this);
-				}
+				self.runtime.trigger(cr.plugins_.Speech.prototype.cnds.OnCommand, self);
 			  };
 		}
 		
 		
 		// Automatically Start
 		if (!self.recognizing){
-			self.patt = new RegExp(self.command.toLowerCase());
+		//	self.patt = new RegExp(self.command.toLowerCase());
 			self.final_transcript = '';
 			self.recognition.lang = 'en-US';
 			self.recognition.start();
@@ -252,9 +249,15 @@ cr.plugins_.Speech = function(runtime)
 	// Conditions
 	function Cnds() {};
 	
-	Cnds.prototype.OnCommand = function(command)
+	Cnds.prototype.OnCommand = function(word)
 	{
-		return true;
+		this.patt = new RegExp(word.toLowerCase());
+		if (this.patt.test(this.interim_transcript.toLowerCase())){
+				console.log("Recognized command.");
+				return true;
+		} else {
+				return false;
+		}
 	};
 
 	// the example condition

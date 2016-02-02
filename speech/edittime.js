@@ -55,8 +55,8 @@
 //				script_name);		// corresponding runtime function name
 				
 // example				
-AddNumberParam("Number", "Enter a number to test if positive.");
-AddCondition(0, cf_none, "Is number positive", "My category", "{0} is positive", "Description for my condition!", "MyCondition");
+AddStringParam("Command", "Choose a word to recognize.");
+AddCondition(0, cf_trigger, "On word recognized", "Words", "On word <b>{0}</b> recognized", "Test a word for speech recognition.", "OnCommand");
 
 ////////////////////////////////////////
 // Actions
