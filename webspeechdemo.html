@@ -73,13 +73,15 @@ var timer = null;
 var timerValue = 10;
 var stopButtonClicked = false;
 var final_transcript = '';
+var interim_transcript = '';
 var recognizing = false;
 var ignore_onend;
 var start_timestamp;
+var recognition = null;
 if (!('webkitSpeechRecognition' in window)) {
   console.log("Web Speech API is not supported by this browser.");
 } else {
-  var recognition = new webkitSpeechRecognition();
+  recognition = new webkitSpeechRecognition();
   recognition.continuous = true;
   recognition.interimResults = true;
 
@@ -128,7 +130,7 @@ if (!('webkitSpeechRecognition' in window)) {
   };
 
   recognition.onresult = function(event) {
-    var interim_transcript = '';
+    interim_transcript = '';
     for (var i = event.resultIndex; i < event.results.length; ++i) {
       if (event.results[i].isFinal) {
         final_transcript += event.results[i][0].transcript;
