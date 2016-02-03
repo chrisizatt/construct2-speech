@@ -80,6 +80,7 @@ cr.plugins_.Speech = function(runtime)
 			
 			self.recognition.onspeechstart = function() {
 				console.log("onspeechstart");
+				self.runtime.trigger(cr.plugins_.Speech.prototype.cnds.OnSpeechStarted, self);
 			};
 
 			self.recognition.onerror = function(event) {
@@ -105,6 +106,7 @@ cr.plugins_.Speech = function(runtime)
 			self.recognition.onend = function() {
 				console.log("onend");
 				self.recognizing = false;
+				self.runtime.trigger(cr.plugins_.Speech.prototype.cnds.OnSpeechEnded, self);
 				
 				if (self.stopButtonClicked){
 					self.stopButtonClicked = false;
@@ -256,6 +258,16 @@ cr.plugins_.Speech = function(runtime)
 		} else {
 				return false;
 		}
+	};
+	
+	Cnds.prototype.OnSpeechStarted = function(word)
+	{
+				return true;
+	};
+	
+	Cnds.prototype.OnSpeechEnded = function(word)
+	{
+				return true;
 	};
 
 	// the example condition

@@ -56,7 +56,11 @@
 				
 // example				
 AddStringParam("Command", "Choose a word to recognize.");
-AddCondition(0, cf_trigger, "On word recognized", "Words", "On word <b>{0}</b> recognized", "Test a word for speech recognition.", "OnCommand");
+AddCondition(0, cf_trigger, "On word recognized", "Speech", "On word <b>{0}</b> recognized", "Test a word for speech recognition.", "OnCommand");
+
+AddCondition(1, cf_trigger, "On speech started", "Speech", "On speech started", "Triggered when any speech is detected.", "OnSpeechStarted");
+AddCondition(2, cf_trigger, "On speech ended", "Speech", "On speech ended", "Triggered when any speech recognizion is ending.", "OnSpeechEnded");
+
 
 ////////////////////////////////////////
 // Actions
