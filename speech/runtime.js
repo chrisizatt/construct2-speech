@@ -69,13 +69,17 @@ cr.plugins_.Speech = function(runtime)
 			console.log("Web Speech API is not supported by this browser.");
 		} else {
 			self.recognition = new webkitSpeechRecognition();
-			self.recognition.continuous = true;
+			self.recognition.continuous = false;
 			self.recognition.interimResults = true;
 
 			self.recognition.onstart = function() {
 				console.log("onstart");
 				self.recognizing = true;
 				console.log("Speak now.");
+			};
+			
+			self.recognition.onspeechstart = function() {
+				console.log("onspeechstart");
 			};
 
 			self.recognition.onerror = function(event) {
@@ -145,11 +149,6 @@ cr.plugins_.Speech = function(runtime)
 			self.ignore_onend = false;
 			console.log("Click the Allow button above to enable your microphone.");
 			self.start_timestamp = Date.now();
-			// Fixes Recognition getting stuck.
-			self.timer = setInterval(function() {
-				console.log("restarting recognizer");
-				self.recognition.stop();
-			}, self.timerValue * 1000);
 		 }
 		
 		
@@ -167,7 +166,6 @@ cr.plugins_.Speech = function(runtime)
 		var self = this;
 		
 		self.stopButtonClicked = true;
-		clearInterval(timer);
 		if (self.recognizing) {
 			self.recognition.stop();
 		return;
@@ -253,6 +251,7 @@ cr.plugins_.Speech = function(runtime)
 	{
 		if (this.interim_transcript.toLowerCase().indexOf(word.toLowerCase()) != -1){
 				console.log("Recognized command.");
+			//	self.recognition.start();
 				return true;
 		} else {
 				return false;
