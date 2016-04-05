@@ -16,6 +16,8 @@ I also made an example game with the plugin inside. Say the word "jump" to jump 
 <a href="https://construct2.s3.amazonaws.com/chris/science/index.html" target="_blank"> 
 <img border="0" alt="W3Schools" src="http://onlineimageupoader.weebly.com/uploads/6/6/8/8/66889447/6499799_orig.png" width="100" height="100"></a>
 
+IMPORTANT - When exporting with the plugin, make sure to uncheck minify script.
+
 I am still working out a few problems though. One problem is that the recognizer is slow. How do I fix this? I do not know yet, but I will keep trying to figure it out and update it when I do. I hope this helps game developers. And I hope the veterans and others who have arm or hand disability will be able to play this as well. So far, http://theshockingmind.weebly.com/reading.html has used my code to help kids read.
 
 
