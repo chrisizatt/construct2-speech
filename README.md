@@ -1,5 +1,5 @@
 # construct2-speech
-This is a speech recognition plugin for construct2, the game engine.
+This is a speech recognition plugin for <a href="https://www.scirra.com/construct2">construct2</a>, the game engine.
 I made this plugin for my 4th grade science project and to help game developers easily add acessibility to their games. I haven't fully 
 solved the problem, but I have for all construct2 game developers. If you use Construct2, all you have to do is use the tutorial video
 below to load my plugin (download found in branch) into your Construct 2 copy:
