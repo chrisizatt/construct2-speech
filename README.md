@@ -4,11 +4,8 @@ I made this plugin for a science project and a project to help game developers e
 solved the problem, but I have for all construct2 game developers. If you use Construct2, all you have to do is use the tutorial video
 below to load my plugin (download found in branch) into your Construct 2 copy:
 
-<video width="400" controls>
-  <source src="http://onlineimageupoader.weebly.com/uploads/6/6/8/8/66889447/tutorial.mp4" type="video/mp4">
-  <source src="http://onlineimageupoader.weebly.com/uploads/6/6/8/8/66889447/tutorial.mp4" type="video/ogg">
-  Your browser does not support HTML5 video.
-</video>
+<a href="https://construct2.s3.amazonaws.com/chris/video.html" target="_blank">
+<img border="0" alt="Video" src="http://onlineimageupoader.weebly.com/uploads/6/6/8/8/66889447/6717986_orig.jpg" width="100" height="100"></a>
 
 I also made an example game with the plugin inside. Say the word "jump" to jump over the holes. You can try it out by clicking the image below:
 
