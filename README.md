@@ -7,7 +7,11 @@ below to load my plugin (download found in branch) into your Construct 2 copy:
 <a href="https://construct2.s3.amazonaws.com/chris/video.html" target="_blank">
 <img border="0" alt="Video" src="http://onlineimageupoader.weebly.com/uploads/6/6/8/8/66889447/6717986_orig.jpg" width="100" height="100"></a>
 
-I also made an example game with the plugin inside. Say the word "jump" to jump over the holes. You can try it out by clicking the image below:
+<img src="https://construct2.s3.amazonaws.com/chris/construct2.png"/>
+The speech plugin in action with code. There are onspeech started, onspeech ended, and word recognized events.
+
+
+I also made an example game with the plugin inside. Say the word "jump" to jump over the holes. You can try it out on Chrome by clicking the image below:
 
 <a href="https://construct2.s3.amazonaws.com/chris/science/index.html" target="_blank"> 
 <img border="0" alt="W3Schools" src="http://onlineimageupoader.weebly.com/uploads/6/6/8/8/66889447/6499799_orig.png" width="100" height="100"></a>
@@ -22,7 +26,7 @@ I am still working out a few problems though. One problem is that the recognizer
 
 
 
-<img src="https://construct2.s3.amazonaws.com/chris/sayit.png"></a>
+<img src="https://construct2.s3.amazonaws.com/chris/sayit.png"/>
 
 STEM Fair Project
 
@@ -66,7 +70,7 @@ If I create a voice-controlled game engine plugin, then disabled people can play
 
 | **PROTOTYPE TESTING** |
 | --- |
-<img src="https://construct2.s3.amazonaws.com/chris/chart.png"></a>
+<img src="https://construct2.s3.amazonaws.com/chris/chart.png"/>
 
 VOICE CONTROL ACCURACY TEST
 
@@ -125,4 +129,4 @@ As planned, I created a tool to provide voice-control capability for game develo
 
 
 
-<img src="https://construct2.s3.amazonaws.com/chris/dexter.png"></a>
+<img src="https://construct2.s3.amazonaws.com/chris/dexter.png"/>
